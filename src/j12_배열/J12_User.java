@@ -52,8 +52,7 @@ public class J12_User {
 
 	@Override
 	public String toString() {
-		return "J12_User [username=" + username + ", password=" + password + ", name=" + name + ", email=" + email
-				+ "]";
+		return "J12_User [username=" + username + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
 	
 		

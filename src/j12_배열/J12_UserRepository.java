@@ -36,6 +36,21 @@ public class J12_UserRepository {
 		}
 	}
 	
-	
+	public J12_User findUserByUsername(String username) {
+		
+		J12_User user = null;
+		
+		for(J12_User u : userTable) {
+			if(u == null) {
+				continue;
+			}
+			if(u.getUsername().equals(username)) {
+				user = u;
+				break;
+			}
+		}
+		
+		return user;
+	}
 	
 }

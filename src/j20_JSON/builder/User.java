@@ -11,7 +11,7 @@ public class User {
 	private String password;
 	private String name;
 	private String email;
-	
+//	
 //	public static UserBuilder builder() {
 //		return new UserBuilder();
 //	}

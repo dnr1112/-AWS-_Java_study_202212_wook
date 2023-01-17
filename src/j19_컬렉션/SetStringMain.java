@@ -15,8 +15,8 @@ public class SetStringMain {
 		
 		listStr.add("AAA");
 		listStr.add("BBB");
-		listStr.add("BBB");
-		listStr.add("BBB");
+		listStr.add("CCC");
+		listStr.add("DDD");
 		
 		System.out.println(listStr);
 		
@@ -44,10 +44,6 @@ public class SetStringMain {
 				System.out.println(n);
 			}
 		}
-		
-		
-		
-		
 	}
 
 }

@@ -100,6 +100,13 @@ public class UserManagementFrame extends JFrame {
 		loginPanel.add(loginPasswordField);
 		
 		JButton loginButton = new JButton("Login");
+		
+		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("로그인 요청!");
+			}
+		});
 		loginButton.setBounds(12, 316, 360, 36);
 		loginPanel.add(loginButton);
 		

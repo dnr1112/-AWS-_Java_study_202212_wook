@@ -228,8 +228,6 @@ public class UserManagementFrame extends JFrame {
 								
 				UserService userService = UserService.getInstance();
 				
-				userService.register(userJson.toString());
-				
 				Map<String, String> response = userService.register(userJson.toString());
 				
 				if(response.containsKey("error")) {

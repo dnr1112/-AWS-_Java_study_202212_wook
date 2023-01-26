@@ -55,7 +55,7 @@ public class UserInsert {
 	
 		return successCount;
 	}
-	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	public int saveRoles(Map<String, Object> map) {
 		int successCount = 0;
 		
@@ -110,12 +110,13 @@ public class UserInsert {
 		System.out.println("쿼리 실행 성공: " + successCount + "건");
 		
 		System.out.println(user);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 		
-		List<Integer> roleIdList = new ArrayList<>();
+		List<Integer> roleIdList = new ArrayList<>();		// 반복문을 통해 값을 꺼내야할 때
 		roleIdList.add(2);
 		roleIdList.add(3);
 		
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();			// 지정해놓은 키값 - 꼬리표를 달아놓을 때, 임시 entity 객체
 		map.put("user", user);
 		map.put("roles", roleIdList);
 		

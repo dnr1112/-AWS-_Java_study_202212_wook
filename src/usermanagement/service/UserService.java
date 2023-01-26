@@ -9,8 +9,10 @@ import org.mindrot.jbcrypt.BCrypt;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import usermanagement.entity.RoleDtl;
 import usermanagement.entity.User;
 import usermanagement.repository.UserRepository;
+import usermanagement.repository.UserRepositoryArrayList;
 
 public class UserService {
 	
@@ -36,7 +38,9 @@ public class UserService {
 		Map<String, String> response = new HashMap<>();
 		
 		Map<String, String> userMap = gson.fromJson(userJson, Map.class);
+		
 		for(Entry<String, String> userEntry : userMap.entrySet()) {
+			
 			if(userEntry.getValue().isBlank()) {
 				response.put("error", userEntry.getKey() + "은(는) 공백일 수 없습니다.");
 				return response;
@@ -58,13 +62,18 @@ public class UserService {
 			return response;
 		}
 		
-		String pw = BCrypt.hashpw("1234", BCrypt.gensalt());
-		System.out.println(pw);
-		System.out.println(BCrypt.checkpw("1234", pw));
-		
-//		user.setPassword(BCrypt.);
+		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+		System.out.println("암호화 후");
+		System.out.println(user);
 		
 		userRepository.saveUser(user);
+		
+		RoleDtl roleDtl = RoleDtl.builder()
+				.roleId(3)
+				.userId(user.getUserId())
+				.build();
+		
+		userRepository.saveRoleDtl(roleDtl);
 		
 		response.put("ok", "회원가입성공");
 		

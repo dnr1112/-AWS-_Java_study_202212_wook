@@ -3,8 +3,8 @@ package j22_익명클래스;
 public class Main {
 
 	public static void main(String[] args) {
-		Calculator c1 = new Addition();
 		
+		Calculator c1 = new Addition();
 		System.out.println(c1.calc(10, 20));
 		
 ///////////////////////////////////////////////////////////////		
@@ -17,6 +17,9 @@ public class Main {
 			}
 		};
 		System.out.println(c2.calc(200, 100));
+		
+		Calculator c3 = (x, y) -> x * y;		// 12~18번 줄까지를 합친 것
+		System.out.println(c3.calc(20, 3));
 	}
 
 }

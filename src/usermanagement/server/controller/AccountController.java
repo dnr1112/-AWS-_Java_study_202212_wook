@@ -1,26 +1,37 @@
 package usermanagement.server.controller;
 
+import java.util.Map;
+
 import usermanagement.dto.ResponseDto;
 import usermanagement.entity.User;
+import usermanagement.service.UserService;
 
 public class AccountController {
 
 	private static AccountController instance;
+	private UserService userService;
 	
-	private AccountController() {}
+	private AccountController() {
+		userService = UserService.getInstance();
+	}
 	
 	public static AccountController getInstance() {
-		synchronized (instance) {			// synchronized : 누군가 사용 중이라면 다른사람은 사용 불가 
-			if(instance == null) {
-				instance = new AccountController(); 
-			}
+		if(instance == null) {
+			instance = new AccountController();
 		}
 		return instance;
 	}
 	
-	public ResponseDto<?> register(User user) {
+	
+	public ResponseDto<?> register(String userJson) {
 		
-		return new ResponseDto<String>("ok", "회원가입성공!!");
+		Map<String, String> resultMap = userService.register(userJson);
+	
+		if(resultMap.containsKey("error")) {
+			return new ResponseDto<String>("error", resultMap.get("error"));
+		}
+		
+		return new ResponseDto<String>("ok", resultMap.get("ok"));
 	}
 	
 }

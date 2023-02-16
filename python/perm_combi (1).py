@@ -48,3 +48,6 @@ def combi_pool(pool, r):
         if r_i not in f:
             f.append(r_i)
     return len(f), f
+
+def normal(x, mu=0, sigma=1):
+    return (1/np.sqrt(2*np.pi)*sigma) * np.exp(-0.5*(((x-mu)/sigma)**2))

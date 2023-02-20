@@ -95,6 +95,7 @@ class ConnectedSocket extends Thread {
 	}
 	
 	private void sendToUser(String resource, String status, String body, String toUser) throws IOException {
+		
 		ResponseDto responseDto = new ResponseDto(resource, status, body);
 		for(ConnectedSocket connectedSocket : socketList) {
 			if(connectedSocket.getUsername().equals(toUser) || connectedSocket.getUsername().equals(username)) {
